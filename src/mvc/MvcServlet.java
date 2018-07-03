@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.openqa.selenium.WebElement;
+
 
 
 
@@ -34,9 +34,9 @@ public class MvcServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<WebElement> tableRows = WebElementDataUtil.getWebElement();
+		List<Element> rows = WebElementDataUtil.getWebElement();
 				
-		request.setAttribute("table_rows", tableRows);
+		request.setAttribute("table_rows", rows);
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view_table_rows.jsp");
 				
