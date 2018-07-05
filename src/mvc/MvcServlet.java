@@ -1,6 +1,7 @@
 package mvc;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.openqa.selenium.WebElement;
 
 
 
@@ -34,9 +37,16 @@ public class MvcServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Element> rows = WebElementDataUtil.getWebElement();
+		List<WebElement> tableRows = WebElementDataUtil.getWebElement();
+		
+        List<Element> rows = new ArrayList<Element>();
+        
+        for (int i = 0; i < 112; i++) {
+        	System.out.println((i + 1) +  ": " + tableRows.get(i).getText());
+            rows.add(new Element(tableRows.get(i).getText()));
+        }		
 				
-		request.setAttribute("table_rows", rows);
+		request.setAttribute("rows_info", rows);
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view_table_rows.jsp");
 				

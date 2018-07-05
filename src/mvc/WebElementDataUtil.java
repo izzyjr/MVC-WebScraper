@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebElementDataUtil {
 	
-	public static List<Element> getWebElement() {
+	public static List<WebElement> getWebElement() {
 		
 		System.setProperty("webdriver.chrome.driver", "/Users/israelmesa/Desktop/ChromeDriver/chromedriver");
 		
@@ -19,17 +19,13 @@ public class WebElementDataUtil {
 		
 		String xpath = "//*[@id=\"scr-res-table\"]/table/tbody/tr[*]";
 		
-        List<WebElement> tableRows = driver.findElements(By.xpath(xpath)); 
-        
-        List<Element> rows = new ArrayList<>();
-        
-        for (int i = 0; i < 112; i++) {
-            rows.add(new Element(tableRows.get(i).getText()));
-        }
-
+		List<WebElement> tableRows = new ArrayList<WebElement>();
+		
+        tableRows = driver.findElements(By.xpath(xpath)); 
+   
 //       driver.quit();
         
-        return rows;
+        return tableRows;
 		
 	}
 

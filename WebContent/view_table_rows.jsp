@@ -7,9 +7,9 @@
 <br/>
 	<table border="1">
 
-		<c:forEach var="tempRows" items="${table_rows}">
-		
-			${tempRows}
+		<c:forEach var="tempRows" items="${rows_info}">
+			
+				${tempRows.row}
 			
 		</c:forEach>
 	
