@@ -6,10 +6,17 @@
 <hr>
 <br/>
 	<table border="1">
+	
+		<tr>
+			<th>Coins</th>
+		</tr>
+	
 
 		<c:forEach var="tempRows" items="${rows_info}">
-			
-				${tempRows.row}
+				
+			<tr>
+				<td>${tempRows.row}</td>
+			</tr>
 			
 		</c:forEach>
 	
